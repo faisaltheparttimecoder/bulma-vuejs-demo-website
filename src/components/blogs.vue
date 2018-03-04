@@ -31,10 +31,12 @@
                 <a href="#"> {{ randomUser() }} </a>
                 <!--Dates & Authors would change on search, since the DOM is redrawn-->
                 <!--& we are using random function for those values-->
-                <p class="subtitle is-5">
-                  <i class="far fa-calendar-alt"></i>
-                  {{ randomDates() }}
-                  <br/>
+                <p>
+                  <time class="subtitle is-5">
+                    <i class="far fa-calendar-alt"></i>
+                    {{ randomDates() }}
+                    <br/>
+                  </time>
                 </p>
                 <p class="subtitle is-6 article-subtitle">
                   <i class="far fa-comments"></i>

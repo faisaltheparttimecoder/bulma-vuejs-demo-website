@@ -97,7 +97,7 @@
             "item": "Blogs",
             "route": "/blogs"
           },{
-            "item": "Meet the Team",
+            "item": "The Team",
             "route": "/team"
           },{
             "item": "About Us",
