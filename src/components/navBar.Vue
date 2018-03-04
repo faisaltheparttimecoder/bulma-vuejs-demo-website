@@ -5,7 +5,7 @@
       <!--Company Logo & Website-->
       <div class="navbar-brand">
         <a class="navbar-item" v-bind:href="companyWebsite">
-          <img v-bind:src="companyLogo" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+          <img v-bind:src="companyLogo" alt="Bulma: a modern CSS framework based on Flexbox" width="100" height="28">
         </a>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
           <span></span>
@@ -81,12 +81,12 @@
 </template>
 
 <script>
-
+  import companyLogo from './../assets/logo-black.png'
   export default {
     data() {
       return {
-        "companyLogo": "https://bulma.io/images/bulma-logo.png",
-        "companyWebsite": "https://github.com/faisaltheparttimecoder",
+        "companyLogo": companyLogo,
+        "companyWebsite": "https://github.com/faisaltheparttimecoder/",
         "navLeftItems": [{
             "item": "Home",
             "route": "/"
@@ -142,7 +142,7 @@
           {
             "item": "Download",
             "icon": "fas fa-download",
-            "website": "https://github.com/jgthms/bulma/archive/0.5.1.zip"
+            "website": "https://github.com/faisaltheparttimecoder/bulma-vuejs-demo-website/archive/master.zip"
           }
         ],
         'navbarThemes': [
