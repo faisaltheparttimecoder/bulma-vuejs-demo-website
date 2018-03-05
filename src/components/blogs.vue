@@ -1,74 +1,87 @@
 <template>
   <div>
-    <app-navbar></app-navbar>
-    <section class="articles">
-      <div class="column is-8 is-offset-2">
+    <section class="hero is-warning is-medium">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title has-text-centered">
+            {{ title }}
+          </h1>
+          <h2 class="subtitle has-text-centered">
+            {{ subtitle }}
+          </h2>
+          <input class="input is-danger is-rounded" v-model="search" type="text" placeholder="Search for a blog post ...">
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="columns">
 
-        <!--Bulma Level to place a set of buttons for functionality-->
-        <nav class="level">
-          <!-- Left side -->
-          <div class="level-left">
-          </div>
-          <!-- Right side -->
-          <div class="level-right">
-            <p class="control">
-              <input class="input" type="text" v-model="search" placeholder="Find a post">
+        <!--Left menu options-->
+        <div class="column is-3">
+          <aside class="menu">
+            <p class="menu-label">
+              Featured Blogs
             </p>
-          </div>
-        </nav>
+            <ul class="menu-list">
+              <li v-for="blog in blogs"><a>{{ blog.title }}</a></li>
+            </ul>
+          </aside>
+        </div>
 
-        <!--The main template for blog content, here we use computed property-->
-        <!--to filter blogs ( this is for the search )-->
-        <div v-for="blog in filteredBlogs" class="card article">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-center">
-                <img src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg" class="author-image"
-                     alt="Placeholder image">
+        <div class="column is-8">
+          <!--The main template for blog content, here we use computed property-->
+          <!--to filter blogs ( this is for the search )-->
+          <div v-for="blog in filteredBlogs" class="card article">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-center">
+                  <img src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg" class="author-image"
+                       alt="Placeholder image">
+                </div>
+                <div class="media-content has-text-centered">
+                  <p class="title">{{ blog.title }}</p>
+                  <a href="#"> {{ randomUser() }} </a>
+                  <!--Dates & Authors would change on search, since the DOM is redrawn-->
+                  <!--& we are using random function for those values-->
+                  <p>
+                    <time class="subtitle is-5">
+                      <i class="far fa-calendar-alt"></i>
+                      {{ randomDates() }}
+                      <br/>
+                    </time>
+                  </p>
+                  <p class="subtitle is-6 article-subtitle">
+                    <i class="far fa-comments"></i>
+                    {{ randomNumber() }}
+                    <small>Comments</small>
+                  </p>
+                </div>
               </div>
-              <div class="media-content has-text-centered">
-                <p class="title">{{ blog.title }}</p>
-                <a href="#"> {{ randomUser() }} </a>
-                <!--Dates & Authors would change on search, since the DOM is redrawn-->
-                <!--& we are using random function for those values-->
-                <p>
-                  <time class="subtitle is-5">
-                    <i class="far fa-calendar-alt"></i>
-                    {{ randomDates() }}
-                    <br/>
-                  </time>
-                </p>
-                <p class="subtitle is-6 article-subtitle">
-                  <i class="far fa-comments"></i>
-                  {{ randomNumber() }}
-                  <small>Comments</small>
-                </p>
+
+              <div class="content article-body">
+                <article>
+                  {{ blog.body | snippet }}
+                </article>
               </div>
             </div>
 
-            <div class="content article-body">
-              <article>
-                {{ blog.body }}
-              </article>
-            </div>
-          </div>
-
-          <!--The footer of the care-->
-          <footer class="card-footer">
-            <p class="card-footer-item">
+            <!--The footer of the care-->
+            <footer class="card-footer">
+              <p class="card-footer-item">
                 <span>
                     Tweet on <a href="https://twitter.com">Twitter</a>
                 </span>
-            </p>
-            <p class="card-footer-item">
+              </p>
+              <p class="card-footer-item">
                 <span>
                     Share on <a href="http://facebook.com">Facebook</a>
                 </span>
-            </p>
-          </footer>
+              </p>
+            </footer>
+
+          </div>
 
         </div>
-
       </div>
     </section>
   </div>
@@ -79,6 +92,8 @@
   export default {
     data: function () {
       return {
+        title: "Sharing is knowledge !!!",
+        subtitle: "Checkout out of blogs post for the key to success...",
         blogs: [], // Store house for all the fakeData
         users: [
           'John V',
@@ -129,6 +144,11 @@
           return blog.title.match(this.search)
         });
       } // This one filters out the contents based on users searching
+    },
+    filters: {
+      'snippet': function(data) {
+        return data.slice(1,100) + '...'
+      }
     }
   }
 
@@ -139,11 +159,11 @@
 <style scoped>
 
   input {
-    width: 160%;
+    margin-bottom:  -10rem ;
   }
 
-  .articles {
-    margin: 3rem 0;
+  .section {
+    margin: -1rem 0;
   }
 
   .card.article {

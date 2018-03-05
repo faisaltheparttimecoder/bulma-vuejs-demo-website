@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-navbar></app-navbar>
     <section class="hero is-primary is-medium">
       <div class="hero-body">
         <div class="container">

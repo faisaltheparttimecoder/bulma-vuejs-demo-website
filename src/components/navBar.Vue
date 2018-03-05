@@ -7,7 +7,9 @@
         <a class="navbar-item" v-bind:href="companyWebsite">
           <img v-bind:src="companyLogo" alt="Bulma: a modern CSS framework based on Flexbox" width="100" height="28">
         </a>
-        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <!--workflow on the burger menu when clicked-->
+        <div v-on:click="active = !active" v-bind:class = "{'is-active': active }" class="navbar-burger burger"
+             data-target="navbarExampleTransparentExample">
           <span></span>
           <span></span>
           <span></span>
@@ -15,7 +17,7 @@
       </div>
 
       <!--Navbar Options-->
-      <div class="navbar-menu">
+      <div v-bind:class="{'is-active': active }" class="navbar-menu">
 
         <!--Left Navbar list-->
         <div class="navbar-start">
@@ -85,9 +87,10 @@
   export default {
     data() {
       return {
-        "companyLogo": companyLogo,
-        "companyWebsite": "https://github.com/faisaltheparttimecoder/",
-        "navLeftItems": [{
+        active: false,
+        companyLogo: companyLogo,
+        companyWebsite: "https://github.com/faisaltheparttimecoder/",
+        navLeftItems: [{
             "item": "Home",
             "route": "/"
           },{
@@ -106,8 +109,8 @@
             "item": "Contact",
             "route": "/contact"
           }],
-        "navDropdownMenu": "Follow",
-        "navDropdownItems": [
+        navDropdownMenu: "Follow",
+        navDropdownItems: [
           {
             "item": "Github",
             "icon": "fab fa-github",
@@ -133,7 +136,7 @@
             "icon": "fab fa-instagram",
             "website": "https://instagram.com"
           }],
-        "navbarRightItems": [
+        navbarRightItems: [
           {
             "item": "Tweet",
             "icon": "fab fa-twitter",
@@ -145,7 +148,7 @@
             "website": "https://github.com/faisaltheparttimecoder/bulma-vuejs-demo-website/archive/master.zip"
           }
         ],
-        'navbarThemes': [
+        navbarThemes: [
           'is-primary',
           'is-link',
           'is-info',
@@ -163,7 +166,7 @@
     methods: {
       randomTheme: function() {
          this.selectedNavTheme = this.navbarThemes[Math.floor(Math.random() * this.navbarThemes.length)]
-      },
+      }
     }
   }
 

@@ -3,6 +3,7 @@ import dashboard from '@/components/dashboard'
 import blogs from '@/components/blogs'
 import aboutus from '@/components/aboutus'
 import team from '@/components/team'
+import contact from '@/components/contact'
 
 export default [
   {
@@ -24,5 +25,9 @@ export default [
   {
     path: '/team',
     component: team
+  },
+  {
+    path: '/contact',
+    component: contact
   }
 ];

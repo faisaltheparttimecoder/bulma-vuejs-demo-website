@@ -1,7 +1,5 @@
 <template>
   <div>
-    <app-navbar></app-navbar>
-
     <!--Hero Banner-->
     <section class="hero is-info is-medium">
       <div class="hero-body">
@@ -125,7 +123,7 @@
 <script>
 
   // Define Modal Template here
-  const ModalForm = {
+  const ModalTemplate = {
     template: `
                 <div class="modal">
                   <div class="modal-background"></div>
@@ -151,7 +149,7 @@
 
   export default {
     components: {
-      modal: ModalForm
+      modal: ModalTemplate
     },
     data: function () {
       return {

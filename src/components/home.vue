@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-navbar></app-navbar>
     <section class="hero is-info is-fullheight">
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -22,6 +21,10 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="hero-foot">
+
       </div>
     </section>
   </div>
