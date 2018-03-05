@@ -1,38 +1,46 @@
 <template>
   <div>
     <section class="hero is-warning is-medium">
+
       <div class="hero-body">
-        <div class="container">
-          <h1 class="title has-text-centered">
+        <div class="container has-text-centered">
+          <h1 class="title">
             {{ title }}
           </h1>
-          <h2 class="subtitle has-text-centered">
+          <h2 class="subtitle">
             {{ subtitle }}
           </h2>
-          <input class="input is-danger is-rounded" v-model="search" type="text" placeholder="Search for a blog post ...">
+          <button class="button is-primary">Add Blog</button>
+          <button v-on:click="deleteActive = !deleteActive" class="button is-danger">
+            <span v-if="deleteActive" v-html="unDeleteMsg"></span>
+            <span v-else>Delete Blogs</span>
+          </button>
         </div>
       </div>
+
     </section>
     <section class="section">
       <div class="columns">
 
         <!--Left menu options-->
-        <div class="column is-3">
+        <div class="column is-2">
           <aside class="menu">
             <p class="menu-label">
               Featured Blogs
             </p>
+            <input class="input menu-label" v-model="search" type="text" placeholder="Search for a blog post ...">
             <ul class="menu-list">
-              <li v-for="blog in blogs"><a>{{ blog.title }}</a></li>
+              <li v-for="blog in filteredBlogs"><a>{{ blog.title }}</a></li>
             </ul>
           </aside>
         </div>
 
-        <div class="column is-8">
+        <div class="column is-10">
           <!--The main template for blog content, here we use computed property-->
           <!--to filter blogs ( this is for the search )-->
-          <div v-for="blog in filteredBlogs" class="card article">
+          <div v-for="(blog, index) in filteredBlogs" class="card article">
             <div class="card-content">
+              <a v-if="deleteActive" class="delete is-medium" v-on:click="deleteBlog(index)"></a>
               <div class="media">
                 <div class="media-center">
                   <img src="http://www.radfaces.com/images/avatars/daria-morgendorffer.jpg" class="author-image"
@@ -119,7 +127,9 @@
           'January 28, 2018',
           'Feburary 23, 2018',
         ], // Store house for all fake dates
-        search: '' // PlaceHolder for the search blog functions.
+        search: '', // PlaceHolder for the search blog functions.
+        deleteActive: false, // Activate delete button
+        unDeleteMsg: 'Undelete Blogs' // Html message when delete button is clicked
       }
     },
     beforeCreate: function () {
@@ -137,6 +147,9 @@
       randomNumber: function () {
         return Math.floor(Math.random() * (30 - 1 + 1)) + 1
       }, // This pulls in some random number
+      deleteBlog: function(index) {
+        this.blogs.splice(index, 1)
+      }, // Delete a specfic blog
     },
     computed: {
       filteredBlogs: function() {
@@ -160,6 +173,11 @@
 
   input {
     margin-bottom:  -10rem ;
+  }
+
+  a.delete {
+    float: right;
+    background-color: #ff3860;
   }
 
   .section {

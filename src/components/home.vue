@@ -1,11 +1,14 @@
 <template>
   <div>
     <section class="hero is-info is-fullheight">
+
       <div class="hero-body">
         <div class="container has-text-centered">
+
           <figure >
             <img v-bind:src="logo" width="50%" height="20%">
           </figure>
+
           <div class="column is-6 is-offset-3">
             <h1 class="title white">
                 {{ title }}
@@ -20,12 +23,10 @@
               <a v-bind:href="vueWebsite" class="button is-danger">Visit VueJS</a>
             </div>
           </div>
+
         </div>
       </div>
 
-      <div class="hero-foot">
-
-      </div>
     </section>
   </div>
 </template>
