@@ -16,6 +16,12 @@ Vue.use(Resource)
 import navBar from './components/navBar'
 Vue.component('app-navbar', navBar)
 
+// Global filters
+// This pulls in some random number
+Vue.filter('randomNumber', function(value) {
+  return Math.floor(Math.random() * (value - 1 + 1)) + 1
+})
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
