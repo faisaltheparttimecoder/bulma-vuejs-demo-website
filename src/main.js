@@ -13,6 +13,12 @@ import Resource from 'vue-resource'
 import Trend from 'vuetrend'
 Vue.use(Trend)
 
+// charts
+import Chartkick from 'chartkick'
+import VueChartkick from 'vue-chartkick'
+import Chart from 'chart.js'
+Vue.use(VueChartkick, { Chartkick })
+
 // Registering view plugins
 Vue.use(Resource)
 

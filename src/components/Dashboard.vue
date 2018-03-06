@@ -7,6 +7,7 @@
         </div>
         <div class="container">
           <app-dashboard v-if="menuItem === 'main'"> </app-dashboard>
+          <app-customer v-else-if="menuItem === 'customer'"> </app-customer>
         </div>
       </div>
     </section>
@@ -16,11 +17,13 @@
 <script>
   import menu from './Menu';
   import dashboardHome from './DashboardMain'
+  import customer from './DashboardCustomers'
 
   export default {
     components: {
       'app-menu': menu,
-      'app-dashboard': dashboardHome
+      'app-dashboard': dashboardHome,
+      'app-customer': customer
     },
     data: function() {
       return {
