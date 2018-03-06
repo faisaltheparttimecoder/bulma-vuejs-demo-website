@@ -7,12 +7,21 @@ This demo website is a way to test out the features of the two libraries.
 
 # Build Setup / Installation
 
-``` bash
-# install dependencies
+``` 
+# clone the repository
+git clone https://github.com/faisaltheparttimecoder/bulma-vuejs-demo-website.git
+
+# Navigate to the folder 
+cd bulma-vuejs-demo-website
+
+# install dependencies [ Navigate to the https://nodejs.org/en/download/ if npm is not installed on your machine ]
 npm install
 
-# serve with hot reload at localhost:8080
+# run the website locally
 npm run dev
+
+# Once started, on your browser navigate to the below URL
+http://localhost:8080
 
 # build for production with minification
 npm run build
