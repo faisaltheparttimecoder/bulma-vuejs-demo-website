@@ -43,7 +43,7 @@
           title: 'Dashboard'
         }, {
           name: 'customer',
-          title: 'Customer'
+          title: 'Customers'
         }],
         networkLists:[{
           name: 'website',
