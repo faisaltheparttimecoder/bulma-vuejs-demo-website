@@ -21,7 +21,7 @@ npm run build
 npm run build --report
 ```
 
-# Plugins Used.
+# Plugins Used
 
 Most of the code are raw vueJS & Bulma CSS (that was the intention for learning purpose). The only plugin used are
 
