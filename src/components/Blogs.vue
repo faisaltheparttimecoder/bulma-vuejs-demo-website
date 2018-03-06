@@ -60,64 +60,63 @@
           </aside>
         </div>
 
-        <div class="column is-10">
-          <!--The main template for blog content, here we use computed property-->
-          <!--to filter blogs ( this is for the search )-->
-          <div v-for="(blog, index) in filteredBlogs" class="card article">
-            <div class="card-content">
-              <a v-if="deleteActive" class="delete is-medium" v-on:click="deleteBlog(index)"></a>
-              <div class="media">
-                <div class="media-center">
-                  <img src="https://bulma.io/images/placeholders/64x64.png" class="author-image"
-                       alt="Placeholder image">
-                </div>
-                <div class="media-content has-text-centered">
-                  <a v-bind:href="'/blog/' + blog.id + '/' + blog.users.id">
-                    <p class="title">{{ blog.title }}</p>
-                  </a>
-                  <p> {{ blog.users['name'] }} </p>
-                  <!--Dates & Authors would change on search, since the DOM is redrawn-->
-                  <!--& we are using random function for those values-->
-                  <p>
-                    <time class="subtitle is-5">
-                      <i class="far fa-calendar-alt"></i>
-                      {{ randomDates() }}
-                      <br/>
-                    </time>
-                  </p>
-                  <p class="subtitle is-6 article-subtitle">
-                    <i class="far fa-comments"></i>
-                    {{ '10' | randomNumber }}
-                    <small>Comments</small>
-                  </p>
-                </div>
-              </div>
+        <div class="container">
+          <div v-for="(blog, index) in filteredBlogs" class="columns">
+            <div class="column is-12">
+              <div class="card article">
+                <div class="card-content">
+                  <a v-if="deleteActive" class="delete is-medium" v-on:click="deleteBlog(index)"></a>
+                  <div class="media">
+                    <div class="media-center">
+                      <img src="https://bulma.io/images/placeholders/64x64.png" class="author-image"
+                           alt="Placeholder image">
+                    </div>
+                    <div class="media-content has-text-centered">
+                      <a v-bind:href="'/blog/' + blog.id + '/' + blog.users.id">
+                        <p class="title">{{ blog.title }}</p>
+                      </a>
+                      <p> {{ blog.users['name'] }} </p>
+                      <p>
+                        <time class="subtitle is-5">
+                          <i class="far fa-calendar-alt"></i>
+                          {{ randomDates() }}
+                          <br/>
+                        </time>
+                      </p>
+                      <p class="subtitle is-6 article-subtitle">
+                        <i class="far fa-comments"></i>
+                        {{ '10' | randomNumber }}
+                        <small>Comments</small>
+                      </p>
+                    </div>
+                  </div>
 
-              <div class="content article-body">
-                <article>
-                  {{ blog.body | snippet }} <a v-bind:href="'/blog/' + blog.id + '/' + blog.users.id"> read more ...</a>
-                </article>
+                  <div class="content article-body">
+                    <article>
+                      {{ blog.body | snippet }} <a v-bind:href="'/blog/' + blog.id + '/' + blog.users.id"> read more ...</a>
+                    </article>
+                  </div>
+                </div>
+
+                <footer class="card-footer">
+                  <p class="card-footer-item">
+                      <span>
+                      Tweet on <a href="https://twitter.com">Twitter</a>
+                      </span>
+                  </p>
+                  <p class="card-footer-item">
+                      <span>
+                      Share on <a href="http://facebook.com">Facebook</a>
+                      </span>
+                  </p>
+                </footer>
+
               </div>
             </div>
-
-            <!--The footer of the care-->
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <span>
-                    Tweet on <a href="https://twitter.com">Twitter</a>
-                </span>
-              </p>
-              <p class="card-footer-item">
-                <span>
-                    Share on <a href="http://facebook.com">Facebook</a>
-                </span>
-              </p>
-            </footer>
-
           </div>
-
         </div>
       </div>
+
     </section>
   </div>
 </template>
@@ -185,7 +184,6 @@
                 </div>
              `
   }
-
 
   export default {
     components: {

@@ -21,6 +21,7 @@
             <div class="is-centered">
               <a v-bind:href="bulmaWebsite" class="button is-primary">Visit Bulma</a>
               <a v-bind:href="vueWebsite" class="button is-danger">Visit VueJS</a>
+              <a v-bind:href="repoLink" class="button is-info">Visit Repository</a>
             </div>
           </div>
 
@@ -41,7 +42,8 @@
         'subtitle1': 'A demo website based on frameworks Bulma (CSS) and Vue JS (JS)',
         'subtitle2': 'Feel free to navigate around and checkout the page',
         'bulmaWebsite': 'https://bulma.io',
-        'vueWebsite': 'https://vuejs.org/'
+        'vueWebsite': 'https://vuejs.org/',
+        'repoLink': 'https://github.com/faisaltheparttimecoder/bulma-vuejs-demo-website'
       }
     }
   }

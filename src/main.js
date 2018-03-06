@@ -9,11 +9,15 @@ import router from './router'
 // Import the vue resource module for making HTTP request ( like POST / GET etc )
 import Resource from 'vue-resource'
 
+// for graphs
+import Trend from 'vuetrend'
+Vue.use(Trend)
+
 // Registering view plugins
 Vue.use(Resource)
 
 // Import global Vue compoments
-import navBar from './components/navBar'
+import navBar from './components/Navbar'
 Vue.component('app-navbar', navBar)
 
 // Global filters
