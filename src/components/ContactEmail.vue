@@ -24,7 +24,7 @@
         <article v-if="formError" class="message is-danger">
           <div class="message-header">
             <p>Form Error</p>
-            <button v-on:click="formError = false" class="delete" aria-label="delete"></button>
+            <button class="delete" aria-label="delete"></button>
           </div>
           <div class="message-body">
             Please fill in your Name, Email & Message, The mandatory fields on the form..
@@ -91,7 +91,7 @@
         return this.userInput = this.orgUserInput
       },
       sumbitPost: function() {
-        if (this.userInput.Message == '' || this.userInput.Name == '' || this.userInput.Email == '') {
+        if (this.userInput.Message === '' && this.userInput.Name === '' && this.userInput.Email === '') {
           return this.formError = true
         } else {
           this.formError = false
