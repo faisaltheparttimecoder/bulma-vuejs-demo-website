@@ -12,7 +12,7 @@ export default [
     component: home
   },
   {
-    path: '/dashboard',
+    path: '/dashboard/:menu',
     component: dashboard
   },
   {

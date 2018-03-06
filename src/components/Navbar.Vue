@@ -95,7 +95,7 @@
             "route": "/"
           },{
             "item": "Dashboard",
-            "route": "/dashboard"
+            "route": "/dashboard/main"
           },{
             "item": "Blogs",
             "route": "/blogs"

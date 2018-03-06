@@ -5,39 +5,65 @@
         General
       </p>
       <ul class="menu-list">
-        <li><a class="is-active">Dashboard</a></li>
-        <li><a>Customers</a></li>
-      </ul>
-      <p class="menu-label">
-        Administration
-      </p>
-      <ul class="menu-list">
-        <li><a>Team Settings</a></li>
-        <li>
-          <a>Manage Your Team</a>
-          <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
-          </ul>
+        <li v-for="generalList in generalLists">
+          <a v-bind:class="{'is-active': tabActive(generalList.name)}" v-bind:href="'/dashboard/'+ generalList.name">
+            {{ generalList.title }}
+          </a>
         </li>
-        <li><a>Invitations</a></li>
-        <li><a>Cloud Storage Environment Settings</a></li>
-        <li><a>Authentication</a></li>
       </ul>
       <p class="menu-label">
-        Transactions
+        Social Network
       </p>
       <ul class="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
+        <li v-for="networkList in networkLists">
+          <a v-bind:class="{'is-active': tabActive(networkList.name)}" v-bind:href="'/dashboard/'+ networkList.name">
+            {{ networkList.title }}
+          </a>
+        </li>
+      </ul>
+      <p class="menu-label">
+        Dummy Links
+      </p>
+      <ul class="menu-list">
+        <li v-for="dummyList in dummyLists"><a>{{ dummyList }}</a></li>
       </ul>
     </aside>
   </div>
 </template>
 
 <script>
+  export default {
+    props: [
+      'menuActive'
+    ],
+    data: function() {
+      return {
+        generalLists: [{
+          name: 'main',
+          title: 'Dashboard'
+        }, {
+          name: 'customer',
+          title: 'Customer'
+        }],
+        networkLists:[{
+          name: 'website',
+          title: 'Our website'
+        },{
+          name: 'facebook',
+          title: 'Facebook'
+        },{
+          name: 'twitter',
+          title: 'Twitter'
+        }],
+        dummyLists: ['Payments', 'Transaction', 'Balance']
+      }
+    },
+    methods: {
+      tabActive: function(tab) {
+        return this.menuActive === tab
+      }
+    }
+  }
 
 </script>
 
