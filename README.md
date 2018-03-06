@@ -23,7 +23,7 @@ npm run build --report
 
 # Plugins Used.
 
-Most of the code a raw vueJS & Bulma CSS (as that was the intention for learning purpose). The only plugin used are
+Most of the code are raw vueJS & Bulma CSS (that was the intention for learning purpose). The only plugin used are
 
 + [ChartKick](https://www.chartkick.com/vue) for charts
 + [vuetrend](https://cinwell.com/vue-trend/) for trend lines
