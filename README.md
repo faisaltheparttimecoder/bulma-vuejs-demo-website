@@ -37,7 +37,7 @@ npm run build --report
 + VueJS router has issue with the "history" mode, more details [here](https://router.vuejs.org/en/essentials/history-mode.html)
 + To fix this, the server used is "express" server and used the "connect-history-api-fallback" to fallback, the configuration is on the file "server.js" which is part of the repo.
 + After the production build ```npm run build```, run the command ```node server.js``` to start the webserver and see if all the routes work perfectly.
-+ When pushing to heroku or cloud foundry, make sure to change the line after the build is completed.
++ When pushing to Heroku or Cloud foundry, make sure to change the line after the build ```npm run build``` is completed in the package.json file
 
 ```"build": "node build/build.js"```
 
