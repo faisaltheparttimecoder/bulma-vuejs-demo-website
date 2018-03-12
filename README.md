@@ -52,4 +52,5 @@ Most of the code are raw vueJS & Bulma CSS (that was the intention for learning 
 + [ChartKick](https://www.chartkick.com/vue) for charts
 + [vuetrend](https://cinwell.com/vue-trend/) for trend lines
 + [JsonPlaceHolder](https://jsonplaceholder.typicode.com/) for all the fake data.
++ [Templates](https://dansup.github.io/bulma-templates/) reference
 
